@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+
+    <title>Document</title>
+</head>
+<body>
+    <nav>
+        <h1>House price estimator</h1>
+    </nav>
+    <main>
+        <h1>Enter the details of the house you want to estimate the price for:</h1>
+        <!-- cambio aquí -->
+        <form action="{{ url_for('index') }}" method="post">
+            <div>
+                <label for="bedrooms">Bedrooms:</label><br>
+                <input type="number" id="bedrooms" name="bedrooms" required><br>
+
+                <label for="bathrooms">Bathrooms:</label><br>
+                <input type="number" id="bathrooms" name="bathrooms" required><br>
+
+                <label for="sqft_living">Square Feet Living:</label><br>
+                <input type="number" id="sqft_living" name="sqft_living" required><br>
+
+                <label for="sqft_lot">Square Feet Lot:</label><br>
+                <input type="number" id="sqft_lot" name="sqft_lot" required><br>
+
+                <label for="floors">Floors:</label><br>
+                <input type="number" id="floors" name="floors" required><br>
+            </div>
+
+            <label>Waterfront:</label><br>
+            <input type="radio" id="waterfront-yes" name="waterfront" value="Yes" required>
+            <label for="waterfront-yes">Yes</label><br>
+
+            <input type="radio" id="waterfront-no" name="waterfront" value="No" required>
+            <label for="waterfront-no">No</label><br>
+
+            <label>Condition:</label><br>
+            <input type="radio" id="condition-1" name="condition" value="1" required>
+            <label for="condition-1">1-Worst</label><br>
+
+            <input type="radio" id="condition-2" name="condition" value="2">
+            <label for="condition-2">2</label><br>
+
+            <input type="radio" id="condition-3" name="condition" value="3">
+            <label for="condition-3">3</label><br>
+
+            <input type="radio" id="condition-4" name="condition" value="4">
+            <label for="condition-4">4</label><br>
+
+            <input type="radio" id="condition-5" name="condition" value="5">
+            <label for="condition-5">5-Best</label><br>
+
+            <input class="btn" type="submit" value="submit">
+
+            <h3>Estimated Price:</h3>
+            <!-- cambio aquí -->
+            <p>{{ prediction }}</p>
+        </form>
+    </main>
+</body>
+</html>
